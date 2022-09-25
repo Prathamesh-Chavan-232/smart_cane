@@ -9,40 +9,43 @@ const DEFAULT_PROFILE_PICTURE =
 
 // TODO : Define a text theme & App theme - light & dark
 
-// Textfields & small hint text - mulish
-// Hyperlinks - nunito
-// Titles - Cabin - w500, w600
-//
+/* Fonts - 
+  Hyperlinks - nunito
+  large Text & Home page - DM sans
+  Textfields & small hint text - mulish
+  Titles, Buton - Cabin - w500, w600, Inter
 
+*/
 const DEFAULT_TEXT_THEME = TextTheme(
   bodyText1: TextStyle(
-    fontFamily: 'RumRaisin',
+    fontFamily: 'mulish',
     fontSize: 18,
     color: Colors.white,
   ),
-  headline2: TextStyle(
-    fontFamily: 'RumRaisin',
+  headline1: TextStyle(
+    fontFamily: 'DM Sans',
     fontSize: 60,
-    color: Color(0xFF512DA8),
+  ),
+  headline2: TextStyle(
+    fontFamily: 'Cabin',
+    fontSize: 60,
+    fontWeight: FontWeight.w600,
   ),
   headline3: TextStyle(
-    fontFamily: 'SakkalMajalla',
-    fontSize: 28,
-    color: Colors.black,
+    fontFamily: 'Cabin',
+    fontSize: 60,
+    fontWeight: FontWeight.w500,
   ),
   subtitle1: TextStyle(
-    fontFamily: 'SakkalMajalla',
+    fontFamily: 'Cabin',
     fontSize: 20,
-    color: Colors.grey,
   ),
   subtitle2: TextStyle(
-    fontFamily: 'SakkalMajalla',
+    fontFamily: 'DM Sans',
     fontSize: 26,
-    color: Colors.grey,
   ),
   button: TextStyle(
-    fontFamily: 'SakkalMajalla',
+    fontFamily: 'Cabin',
     fontSize: 20,
-    color: Colors.grey,
   ),
 );
