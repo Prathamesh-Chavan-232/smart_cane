@@ -11,15 +11,7 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
   String username = "";
   @override
   void initState() {
-    getUserData();
     super.initState();
-  }
-
-  void getUserData() async {
-    UserModel userData = await FirestoreMethods().getUserData();
-    setState(() {
-      username = userData.username;
-    });
   }
 
   @override
@@ -30,7 +22,7 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
             backgroundColor: Colors.black,
             actions: const [],
           ),
-          body: body: const Center(child: Text('This is a mobile'))),
+          body: const Center(child: Text('This is a mobile'))),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_cane/common_utils/dimensions.dart';
 
 class ResponsiveLayout extends StatefulWidget {
   final Widget webScreen;
