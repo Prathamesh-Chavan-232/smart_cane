@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "837064782205",
+    "project_id": "smart-cane-7e95a",
+    "storage_bucket": "smart-cane-7e95a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:837064782205:android:933da7e35b959f40375c14",
+        "android_client_info": {
+          "package_name": "com.mitwpu.smart_cane"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "837064782205-qv2urotn4cv7mnds83fl1inj4k1uha65.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkXDJKr326AhIUitGDp9LYoWpgWsIckKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "837064782205-qv2urotn4cv7mnds83fl1inj4k1uha65.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
