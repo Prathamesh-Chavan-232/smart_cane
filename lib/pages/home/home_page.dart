@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:smart_cane/globals.dart';
 
 import 'home_widgets.dart';
@@ -24,7 +21,7 @@ class _HomePageState extends State<HomePage> {
           // shape: RoundedRectangleBorder(
           //     borderRadius: BorderRadius.all(Radius.circular(17))),
           onPressed: () {},
-          child: Icon(
+          child: const Icon(
             size: 40,
             Icons.mic,
             color: Colors.black,
@@ -32,7 +29,7 @@ class _HomePageState extends State<HomePage> {
         ),
         appBar: AppBar(
           centerTitle: false,
-          title: Text(
+          title: const Text(
             "CONNECTED",
             style: TextStyle(
                 color: Color.fromRGBO(200, 254, 251, 1), fontSize: 18),
@@ -40,9 +37,9 @@ class _HomePageState extends State<HomePage> {
           leading: Switch(
             value: true,
             onChanged: ((value) => false),
-            activeColor: Color.fromRGBO(54, 91, 109, 1),
+            activeColor: const Color.fromRGBO(54, 91, 109, 1),
             activeTrackColor: Colors.white38,
-            inactiveThumbColor: Color.fromARGB(255, 240, 99, 88),
+            inactiveThumbColor: const Color.fromARGB(255, 240, 99, 88),
             inactiveTrackColor: Colors.white38,
           ),
           actions: [
@@ -64,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                     image: AssetImage("assets/background-circuit.png"),
                     fit: BoxFit.cover)),
           ),
-          Body()
+           Body()
         ]));
   }
 }

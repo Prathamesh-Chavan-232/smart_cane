@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:smart_cane/globals.dart';
-
+int battery=70;
+bool wateralert=false;
+bool obstaclealert=true;
 class Body extends StatefulWidget {
-  const Body({super.key});
 
   @override
   State<Body> createState() => _BodyState();
@@ -15,42 +13,181 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.only(top: 20),
+      padding: const EdgeInsets.only(top: 20),
       child: Column(
         children: [
-          Container(color: COLOR_THEME['secondary'], height: 112),
-          SizedBox(
-            height: 20,
-          ),
-          Container(color: Color.fromRGBO(200, 254, 251, 1), height: 300),
-          SizedBox(height: 20),
-          Container(
-            color: Color.fromRGBO(95, 205, 67, 0.2),
-            height: 60,
-          ),
-          SizedBox(height: 20),
-          Container(
-            color: Color.fromRGBO(255, 244, 187, 1),
-            height: 90,
-          ),
-          SizedBox(height: 10),
-          Container(
-            color: Color.fromRGBO(200, 231, 254, 1),
-            height: 90,
-          )
+          Location(),
+          Container(color: const Color.fromRGBO(200, 254, 251, 1), height: 300),
+          const SizedBox(height: 20),
+          Battery(),
+          Obstacle(),
+          WaterAlert()
         ],
       ),
     );
   }
 }
 
+Widget Location(){
+  return  Padding(
+    padding: const EdgeInsets.only(bottom: 20),
+      child:Container(color: COLOR_THEME['secondary'], height: 112,
+      child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(children:  [
+
+                Container(
+                  height: 50,
+                  width: 50,
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          opacity: 0.5,
+                          image: AssetImage("assets/bx_rfid.png"),
+                          )),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                  Text("Current Location: 2nd Floor near the lift",style: TextStyle(fontWeight: FontWeight.bold),),
+                  Text("RFID Tag No. -12345678",style: TextStyle(fontWeight: FontWeight.bold))
+                ],)
+              ],),
+            ),
+            Padding(padding: const EdgeInsets.only(left: 25.0),
+              child: Row(
+                children: [
+                  Container(
+                    height: 31,
+                    width:163,
+                    child: ElevatedButton(onPressed: (){},
+                        style: ButtonStyle(
+                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15.0),
+                                    side: BorderSide(color: COLOR_THEME['secondary']!)
+                                )
+                            )
+                        ),
+                        child:  const Text("View RFID Tags")
+
+                    ),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(left:8.0),
+                    child: Container(
+                      height: 31,
+                      width:163,
+                      child: ElevatedButton(onPressed: (){},
+                          style: ButtonStyle(
+                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15.0),
+                                      side: BorderSide(color: COLOR_THEME['secondary']!)
+                                  )
+                              )
+                          ),
+                          child:  const Text("Notify Guardian")
+
+                      ),
+                    ),
+                  ),
+                ],
+              )
+              ,
+
+            )
+          ],
+      ),),
+  );
+}
+Widget Battery(){
+
+  return  Padding(
+    padding: const EdgeInsets.only(bottom: 20),
+      child:Container(
+        color:battery>20 ?
+         Color.fromRGBO(95, 205, 67, 0.2):  Color.fromRGBO(205, 76, 67, 0.35),
+        height: 62,
+        child:  Center(
+          child: Text("Device Battery: $battery%",
+
+          style: TextStyle(fontSize: 30,color: battery>20 ? Colors.green : Colors.red),
+          ),
+        ),
+      ),
+  );
+}
+Widget Obstacle(){
+  return  Padding(
+    padding: const EdgeInsets.only(bottom: 15),
+      child:Container(
+        height: 90,
+      width: 340,
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(255, 244, 187, 1),
+          borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: COLOR_THEME['primary']!,
+              width: 2
+        )
+
+      ),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("OBSTALE ALERTS",style: TextStyle(color: COLOR_THEME['primary'],
+                fontWeight: FontWeight.bold,
+                fontSize: 18,),),
+            ),
+            Text(obstaclealert ? "Obstacle detected below knee level"
+                : "No obstacle ahead", style: TextStyle(color:Colors.red)),
+          ],
+        ),
+      ),
+  );
+}
+Widget WaterAlert(){
+  return  Padding(
+    padding: const EdgeInsets.only(bottom: 30),
+      child:  Container(
+    height: 90,
+    width: 340,
+    decoration: BoxDecoration(
+       color: const Color.fromRGBO(200, 231, 254, 1),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+            color: COLOR_THEME['primary']!,
+            width: 2
+        )
+
+    ),
+    child: Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("WATER ALERTS",style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+              color: COLOR_THEME['primary']),),
+        ),
+        Text(wateralert ? "Water/Slippery road ahead"
+            : "Dry Road ahead", style: TextStyle(color:Colors.green)),
+      ],
+    ),
+  ),
+  );
+}
 Widget Bottom() {
   return BottomAppBar(
       elevation: 0.2,
       notchMargin: 7,
       clipBehavior: Clip.antiAlias,
       color: COLOR_THEME['primary'],
-      child: SizedBox(
+      child: const SizedBox(
         width: double.infinity,
         height: 60,
       ));

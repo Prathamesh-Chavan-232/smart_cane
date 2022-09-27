@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import 'package:smart_cane/pages/profile/profile_page.dart';
 import 'globals.dart';
 import 'pages/home/home_page.dart';
 
@@ -35,7 +36,10 @@ class MyApp extends StatelessWidget {
       ),
       themeMode: ThemeMode.light,
       initialRoute: '/home',
-      routes: {'/home': (_) => const HomePage()},
+      routes: {
+        '/home': (_) => const HomePage(),
+        '/profile': (_) => const ProfilePage(),
+      },
     );
   }
 }
