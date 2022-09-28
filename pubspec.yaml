@@ -42,6 +42,8 @@ dependencies:
   cloud_firestore: ^3.4.9
   firebase_storage: ^10.3.9
   provider: ^6.0.3
+  google_maps_flutter: ^2.2.0
+  syncfusion_flutter_maps: ^20.2.50
 
 dev_dependencies:
   flutter_test:
