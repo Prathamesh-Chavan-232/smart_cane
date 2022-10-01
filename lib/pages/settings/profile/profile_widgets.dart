@@ -94,7 +94,7 @@ Widget Logout() {
           )));
 }
 
-Widget Menu() {
+Widget Menu(BuildContext context) {
   return Column(
     children: [
       const Padding(
@@ -103,22 +103,25 @@ Widget Menu() {
           thickness: 2,
         ),
       ),
-      Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Row(
-          children: const [
-            Icon(
-              Icons.bluetooth,
-              size: 35,
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Text(
-              "Bluetooth Setting",
-              style: TextStyle(fontSize: 18),
-            )
-          ],
+      InkWell(
+        onTap: () => Navigator.of(context).pushNamed("/bluetooth"),
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Row(
+            children: const [
+              Icon(
+                Icons.bluetooth,
+                size: 35,
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                "Bluetooth Setting",
+                style: TextStyle(fontSize: 18),
+              )
+            ],
+          ),
         ),
       ),
       const Padding(
@@ -127,19 +130,22 @@ Widget Menu() {
           thickness: 2,
         ),
       ),
-      Padding(
-        padding: const EdgeInsets.all(15),
-        child: Row(
-          children: const [
-            Icon(Icons.call, size: 35),
-            SizedBox(
-              width: 10,
-            ),
-            Text(
-              "Emergency Calls",
-              style: TextStyle(fontSize: 18),
-            )
-          ],
+      InkWell(
+        onTap: () => Navigator.of(context).pushNamed("/emergency"),
+        child: Padding(
+          padding: const EdgeInsets.all(15),
+          child: Row(
+            children: const [
+              Icon(Icons.call, size: 35),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                "Emergency Calls",
+                style: TextStyle(fontSize: 18),
+              )
+            ],
+          ),
         ),
       ),
       const Padding(
@@ -150,4 +156,18 @@ Widget Menu() {
       ),
     ],
   );
+}
+
+PreferredSizeWidget appBar(BuildContext context, String title) {
+  return AppBar(
+      title: Text(
+        title,
+        style: TextStyle(color: Color.fromRGBO(200, 254, 251, 1), fontSize: 18),
+      ),
+      leading: IconButton(
+        iconSize: 35,
+        icon: const Icon(Icons.turn_left),
+        color: COLOR_THEME['tertiary'],
+        onPressed: () => Navigator.of(context)..pop(),
+      ));
 }

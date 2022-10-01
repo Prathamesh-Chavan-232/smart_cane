@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_cane/pages/profile/profile_page.dart';
+import 'package:smart_cane/pages/settings/more/bluetooth.dart';
+import 'package:smart_cane/pages/settings/more/emergency_calls.dart';
+import 'package:smart_cane/pages/settings/profile/profile_page.dart';
 import 'globals.dart';
 import 'pages/home/home_page.dart';
 
@@ -39,6 +41,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (_) => const HomePage(),
         '/profile': (_) => const ProfilePage(),
+        '/bluetooth': (_) => const BlueTooth(),
+        '/emergency': (_) => const EmergencyCalls(),
       },
     );
   }

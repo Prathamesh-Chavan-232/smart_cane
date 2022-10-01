@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
               msg: mic ? "Recording Stopped..." : "Listening..",
               toastLength: Toast.LENGTH_SHORT,
               timeInSecForIosWeb: 1,
-              backgroundColor: Colors.white70,
+              backgroundColor: COLOR_THEME['secondary'],
               textColor: Colors.black,
               fontSize: 14.0,
             );
@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
           },
           child: Icon(
             size: 40,
-            mic ? Icons.record_voice_over : Icons.mic,
+            mic ? Icons.volume_up_outlined : Icons.mic,
             color: Colors.black,
           ),
         ),
