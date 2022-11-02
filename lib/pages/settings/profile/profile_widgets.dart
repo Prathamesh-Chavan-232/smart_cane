@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_cane/globals.dart';
 
-Widget Avatar() {
+Widget avatar() {
   return const Padding(
     padding: EdgeInsets.only(top: 40.0, left: 20, right: 10),
     child: CircleAvatar(
@@ -12,7 +12,7 @@ Widget Avatar() {
   );
 }
 
-Widget Info() {
+Widget info() {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -46,10 +46,10 @@ Widget Info() {
   );
 }
 
-Widget Edit() {
+Widget edit() {
   return Padding(
       padding: const EdgeInsets.only(left: 8.0, bottom: 40),
-      child: Container(
+      child: SizedBox(
           height: 35,
           width: 300,
           child: ElevatedButton(
@@ -70,10 +70,10 @@ Widget Edit() {
           )));
 }
 
-Widget Logout() {
+Widget logout() {
   return Padding(
       padding: const EdgeInsets.only(left: 8.0),
-      child: Container(
+      child: SizedBox(
           height: 35,
           width: 150,
           child: ElevatedButton(
@@ -94,7 +94,7 @@ Widget Logout() {
           )));
 }
 
-Widget Menu(BuildContext context) {
+Widget menu(BuildContext context) {
   return Column(
     children: [
       const Padding(
@@ -162,7 +162,8 @@ PreferredSizeWidget appBar(BuildContext context, String title) {
   return AppBar(
       title: Text(
         title,
-        style: TextStyle(color: Color.fromRGBO(200, 254, 251, 1), fontSize: 18),
+        style: const TextStyle(
+            color: Color.fromRGBO(200, 254, 251, 1), fontSize: 18),
       ),
       leading: IconButton(
         iconSize: 35,

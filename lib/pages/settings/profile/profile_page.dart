@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:smart_cane/globals.dart';
 import 'package:smart_cane/pages/settings/profile/profile_widgets.dart';
 
 import '../../home/home_widgets.dart';
@@ -18,7 +17,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Bottom(),
-      floatingActionButton: Logout(),
+      floatingActionButton: logout(),
       appBar: appBar(context, "Settings / Profile"),
       body: Stack(
         children: [
@@ -34,10 +33,10 @@ class _ProfilePageState extends State<ProfilePage> {
             child: Column(
               children: [
                 Row(
-                  children: [Avatar(), Info()],
+                  children: [avatar(), info()],
                 ),
-                Edit(),
-                Menu(context)
+                edit(),
+                menu(context)
               ],
             ),
           ),
