@@ -1,9 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:smart_cane/common_utils/colors.dart';
 import 'package:smart_cane/pages/settings/more/bluetooth.dart';
 import 'package:smart_cane/pages/settings/more/emergency_calls.dart';
 import 'package:smart_cane/pages/settings/profile/profile_page.dart';
+import 'package:smart_cane/screens/auth_screens/start_screen.dart';
 import 'globals.dart';
 import 'pages/home/home_page.dart';
 
@@ -25,8 +26,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         colorScheme: Theme.of(context).colorScheme.copyWith(
-              primary: Color.fromRGBO(65, 193, 186, 1),
-              secondary: const Color(0xFFF0FFFF),
+              primary: primaryBlue,
+              secondary: primaryColor,
             ),
         buttonTheme: Theme.of(context).buttonTheme.copyWith(
               buttonColor: const Color(0xFFC1F0F6),
@@ -37,8 +38,9 @@ class MyApp extends StatelessWidget {
         textTheme: DEFAULT_TEXT_THEME,
       ),
       themeMode: ThemeMode.light,
-      initialRoute: '/home',
+      initialRoute: '/start',
       routes: {
+        '/start': (_) => const StartScreen(),
         '/home': (_) => const HomePage(),
         '/profile': (_) => const ProfilePage(),
         '/bluetooth': (_) => const BlueTooth(),
