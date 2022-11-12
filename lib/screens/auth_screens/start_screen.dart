@@ -8,12 +8,8 @@ class StartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: primaryBlue,
-      appBar: AppBar(),
-      body: Column(
-        children: const [
-          Center(child: Text("Smart Cane")),
-        ],
-      ),
+      appBar: AppBar(elevation: 0),
+      body: Center(child: Image.asset('assets/smart-cane-logo.png')),
     );
   }
 }

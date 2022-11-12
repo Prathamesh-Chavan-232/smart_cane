@@ -29,16 +29,16 @@ class MyApp extends StatelessWidget {
               primary: primaryBlue,
               secondary: primaryColor,
             ),
-        buttonTheme: Theme.of(context).buttonTheme.copyWith(
-              buttonColor: const Color(0xFFC1F0F6),
-            ),
+        buttonTheme: Theme.of(context)
+            .buttonTheme
+            .copyWith(buttonColor: const Color(0xFFC1F0F6)),
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         textTheme: DEFAULT_TEXT_THEME,
       ),
       themeMode: ThemeMode.light,
-      initialRoute: '/home',
+      initialRoute: '/start',
       routes: {
         '/start': (_) => const StartScreen(),
         '/home': (_) => const HomePage(),
