@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         textTheme: DEFAULT_TEXT_THEME,
       ),
       themeMode: ThemeMode.light,
-      initialRoute: '/start',
+      initialRoute: '/home',
       routes: {
         '/start': (_) => const StartScreen(),
         '/home': (_) => const HomePage(),
