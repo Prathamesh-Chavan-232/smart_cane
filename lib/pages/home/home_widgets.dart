@@ -7,6 +7,8 @@ bool wateralert = false;
 bool obstaclealert = true;
 
 class Body extends StatefulWidget {
+  const Body({super.key});
+
   @override
   State<Body> createState() => _BodyState();
 }
@@ -27,7 +29,7 @@ class _BodyState extends State<Body> {
     return SingleChildScrollView(
       padding: const EdgeInsets.only(top: 20),
       child: Column(
-        children: [Location(), Map(), Battery(), Obstacle(), WaterAlert()],
+        children: [Location(), Map(), Battery(), obstacle(), waterAlert()],
       ),
     );
   }
@@ -106,7 +108,7 @@ Widget Location() {
             padding: const EdgeInsets.only(left: 25.0),
             child: Row(
               children: [
-                Container(
+                SizedBox(
                   height: 31,
                   width: 163,
                   child: ElevatedButton(
@@ -122,7 +124,7 @@ Widget Location() {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 8.0),
-                  child: Container(
+                  child: SizedBox(
                     height: 31,
                     width: 163,
                     child: ElevatedButton(
@@ -165,7 +167,7 @@ Widget Battery() {
   );
 }
 
-Widget Obstacle() {
+Widget obstacle() {
   return Padding(
     padding: const EdgeInsets.only(bottom: 15),
     child: Container(
@@ -199,7 +201,7 @@ Widget Obstacle() {
   );
 }
 
-Widget WaterAlert() {
+Widget waterAlert() {
   return Padding(
     padding: const EdgeInsets.only(bottom: 30),
     child: Container(
@@ -229,7 +231,7 @@ Widget WaterAlert() {
   );
 }
 
-Widget Bottom() {
+Widget bottom() {
   return BottomAppBar(
       elevation: 0.2,
       notchMargin: 7,

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:smart_cane/pages/settings/profile/profile_widgets.dart';
 
-import '../../home/home_widgets.dart';
 import 'more_widgets.dart';
 
 class EmergencyCalls extends StatefulWidget {

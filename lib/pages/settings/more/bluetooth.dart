@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:smart_cane/pages/settings/profile/profile_widgets.dart';
 
 import '../../home/home_widgets.dart';
@@ -25,7 +23,7 @@ class _BlueToothState extends State<BlueTooth> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Bottom(),
+      bottomNavigationBar: bottom(),
       appBar: appBar(context, "Bluetooth"),
       body: Stack(
         children: [

@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:flutter/material.dart';
 
 const APP_TITLE = "Smart Cane";
@@ -6,8 +8,6 @@ const APP_ICON = "assets/imgs/app_icon.png";
 
 const DEFAULT_PROFILE_PICTURE =
     "https://i.ibb.co/FgnFSQc/default-profile-picture.jpg";
-
-// TODO : Define a text theme & App theme - light & dark
 
 /* Fonts - 
   Hyperlinks - nunito
@@ -24,34 +24,34 @@ const COLOR_THEME = {
 };
 
 const DEFAULT_TEXT_THEME = TextTheme(
-  bodyText1: TextStyle(
+  bodyLarge: TextStyle(
     fontFamily: 'mulish',
     fontSize: 18,
     color: Colors.white,
   ),
-  headline1: TextStyle(
+  displayLarge: TextStyle(
     fontFamily: 'DM Sans',
     fontSize: 60,
   ),
-  headline2: TextStyle(
+  displayMedium: TextStyle(
     fontFamily: 'Cabin',
     fontSize: 60,
     fontWeight: FontWeight.w600,
   ),
-  headline3: TextStyle(
+  displaySmall: TextStyle(
     fontFamily: 'Cabin',
     fontSize: 60,
     fontWeight: FontWeight.w500,
   ),
-  subtitle1: TextStyle(
+  titleMedium: TextStyle(
     fontFamily: 'Cabin',
     fontSize: 20,
   ),
-  subtitle2: TextStyle(
+  titleSmall: TextStyle(
     fontFamily: 'DM Sans',
     fontSize: 26,
   ),
-  button: TextStyle(
+  labelLarge: TextStyle(
     fontFamily: 'Cabin',
     fontSize: 20,
   ),

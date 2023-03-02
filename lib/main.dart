@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_cane/common_utils/colors.dart';
+import 'package:smart_cane/connect_blue_serial.dart';
+import 'package:smart_cane/connect_bluetooth/home.dart';
 import 'package:smart_cane/pages/settings/more/bluetooth.dart';
 import 'package:smart_cane/pages/settings/more/emergency_calls.dart';
 import 'package:smart_cane/pages/settings/profile/profile_page.dart';
@@ -38,8 +40,10 @@ class MyApp extends StatelessWidget {
         textTheme: DEFAULT_TEXT_THEME,
       ),
       themeMode: ThemeMode.light,
-      initialRoute: '/start',
+      initialRoute: '/dev',
       routes: {
+        '/dev': (_) => const ConnectBlueSerial(),
+        '/connect_arduino': (_) => const ConnectArduino(),
         '/start': (_) => const StartScreen(),
         '/home': (_) => const HomePage(),
         '/profile': (_) => const ProfilePage(),

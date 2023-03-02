@@ -16,7 +16,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Bottom(),
+      bottomNavigationBar: bottom(),
       floatingActionButton: logout(),
       appBar: appBar(context, "Settings / Profile"),
       body: Stack(

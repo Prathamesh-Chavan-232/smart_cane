@@ -4,7 +4,7 @@ import 'package:smart_cane/globals.dart';
 Widget Disconnect() {
   return Padding(
       padding: const EdgeInsets.all(10),
-      child: Container(
+      child: SizedBox(
           height: 35,
           width: 300,
           child: ElevatedButton(
@@ -15,8 +15,8 @@ Widget Disconnect() {
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.0),
-                        side: BorderSide(color: Colors.red)))),
-            child: Text(
+                        side: const BorderSide(color: Colors.red)))),
+            child: const Text(
               "DISCONNECT",
               style: TextStyle(
                 color: Colors.red,
@@ -27,14 +27,14 @@ Widget Disconnect() {
 
 Widget Img(String img) {
   return Padding(
-    padding: EdgeInsets.all(8),
+    padding: const EdgeInsets.all(8),
     child: Stack(
       children: [
-        Image(
+        const Image(
           image: AssetImage("assets/spiral_background.png"),
         ),
         Padding(
-            padding: EdgeInsets.only(top: 100, left: 60),
+            padding: const EdgeInsets.only(top: 100, left: 60),
             child: Image(image: AssetImage(img))),
       ],
     ),
@@ -63,8 +63,8 @@ Widget Status() {
               fontSize: 22,
             )),
       ),
-      Padding(
-        padding: const EdgeInsets.all(2.0),
+      const Padding(
+        padding: EdgeInsets.all(2.0),
         child: Text("Connection Strong",
             style: TextStyle(
               color: Colors.green,
@@ -78,7 +78,7 @@ Widget Status() {
 Widget Editcontacts() {
   return Padding(
       padding: const EdgeInsets.only(top: 8.0, bottom: 40),
-      child: Container(
+      child: SizedBox(
           height: 40,
           width: 300,
           child: ElevatedButton(

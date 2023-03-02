@@ -45,6 +45,8 @@ dependencies:
   google_maps_flutter: ^2.2.0
   syncfusion_flutter_maps: ^20.2.50
   firebase_core_platform_interface: 4.5.1
+  flutter_blue: ^0.8.0
+  flutter_bluetooth_serial: ^0.4.0
 
 dev_dependencies:
   flutter_test:
