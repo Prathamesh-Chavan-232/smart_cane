@@ -19,7 +19,7 @@ Widget info() {
       Padding(
         padding: const EdgeInsets.only(bottom: 10, top: 30),
         child: Text(
-          "Rohit Sharma",
+          "Prathamesh Chavan",
           style: TextStyle(
               color: COLOR_THEME['tertiary'],
               fontSize: 25,
@@ -36,7 +36,7 @@ Widget info() {
       ),
       Padding(
         padding: const EdgeInsets.all(2.0),
-        child: Text("Blindness type:  Sever",
+        child: Text("Blindness type:  Severe",
             style: TextStyle(
                 color: COLOR_THEME['tertiary'],
                 fontSize: 15,
@@ -70,14 +70,16 @@ Widget edit() {
           )));
 }
 
-Widget logout() {
+Widget logout(context) {
   return Padding(
       padding: const EdgeInsets.only(left: 8.0),
       child: SizedBox(
           height: 35,
           width: 150,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/login');
+            },
             style: ButtonStyle(
                 backgroundColor:
                     MaterialStateProperty.all<Color>(Colors.red[100]!),

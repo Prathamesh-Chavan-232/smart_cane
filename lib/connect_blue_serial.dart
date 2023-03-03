@@ -176,58 +176,66 @@ class _ConnectBlueSerialState extends State<ConnectBlueSerial> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: const Text("Connect to Arduino")),
-        body: Column(
-          children: [
-            Row(
-              children: [
-                const Text("Enable Bluetooth"),
-                Switch(
-                  trackColor: MaterialStatePropertyAll(Colors.blue.shade100),
-                  thumbColor: const MaterialStatePropertyAll(Colors.blue),
-                  value: _bluetoothState.isEnabled,
-                  onChanged: (bool value) {
-                    future() async {
-                      if (value) {
-                        // Enable Bluetooth
-                        await FlutterBluetoothSerial.instance.requestEnable();
-                      } else {
-                        // Disable Bluetooth
-                        await FlutterBluetoothSerial.instance.requestDisable();
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  const Text("Enable Bluetooth"),
+                  Switch(
+                    trackColor: MaterialStatePropertyAll(Colors.blue.shade100),
+                    thumbColor: const MaterialStatePropertyAll(Colors.blue),
+                    value: _bluetoothState.isEnabled,
+                    onChanged: (bool value) {
+                      future() async {
+                        if (value) {
+                          // Enable Bluetooth
+                          await FlutterBluetoothSerial.instance.requestEnable();
+                        } else {
+                          // Disable Bluetooth
+                          await FlutterBluetoothSerial.instance
+                              .requestDisable();
+                        }
+
+                        // In order to update the devices list
+                        await getPairedDevices();
+
+                        // Disconnect from any device before
+                        // turning off Bluetooth
+                        if (_connected) {
+                          _disconnect();
+                        }
                       }
 
-                      // In order to update the devices list
-                      await getPairedDevices();
-
-                      // Disconnect from any device before
-                      // turning off Bluetooth
-                      if (_connected) {
-                        _disconnect();
-                      }
-                    }
-
-                    future().then((_) {
-                      setState(() {});
-                    });
-                  },
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                DropdownButton(
-                  items: _getDeviceItems(),
-                  onChanged: (value) => setState(() => device = value),
-                  value: _devicesList.isNotEmpty ? device : null,
-                ),
-                TextButton(
-                  onPressed: _connected ? _disconnect : _connect,
-                  child: Text(_connected ? 'Disconnect' : 'Connect'),
-                )
-              ],
-            ),
-            Text(incomingData),
-          ],
+                      future().then((_) {
+                        setState(() {});
+                      });
+                    },
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  DropdownButton(
+                    items: _getDeviceItems(),
+                    onChanged: (value) => setState(() => device = value),
+                    value: _devicesList.isNotEmpty ? device : null,
+                  ),
+                  ElevatedButton(
+                    onPressed: _connected ? _disconnect : _connect,
+                    child: Text(_connected ? 'Disconnect' : 'Connect'),
+                  )
+                ],
+              ),
+              Text('$incomingData\n'),
+              const Center(
+                child: Text(
+                    "To Connect to a Device Pair it from your Device's bluetooth settings"),
+              )
+            ],
+          ),
         ));
   }
 }

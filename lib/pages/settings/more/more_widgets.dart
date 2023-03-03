@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_cane/globals.dart';
 
-Widget Disconnect() {
+Widget Disconnect(bool connected) {
   return Padding(
       padding: const EdgeInsets.all(10),
       child: SizedBox(
@@ -10,16 +10,17 @@ Widget Disconnect() {
           child: ElevatedButton(
             onPressed: () {},
             style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all<Color>(Colors.red[100]!),
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    connected ? Colors.red[100]! : Colors.green[100]!),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.0),
-                        side: const BorderSide(color: Colors.red)))),
-            child: const Text(
-              "DISCONNECT",
+                        side: BorderSide(
+                            color: connected ? Colors.red : Colors.green)))),
+            child: Text(
+              connected ? "DISCONNECT" : "CONNECT",
               style: TextStyle(
-                color: Colors.red,
+                color: connected ? Colors.red : Colors.green,
               ),
             ),
           )));
@@ -41,36 +42,54 @@ Widget Img(String img) {
   );
 }
 
-Widget Status() {
+Widget Status(bool connected) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       Padding(
         padding: const EdgeInsets.only(bottom: 10, top: 30),
         child: Text(
-          "Status : CONNECTED",
+          connected ? "Status : CONNECTED" : "Status : NOT CONNECTED",
           style: TextStyle(
               color: COLOR_THEME['tertiary'],
               fontSize: 22,
               fontWeight: FontWeight.bold),
         ),
       ),
-      Padding(
-        padding: const EdgeInsets.all(2.0),
-        child: Text("Smart Cane - 20099CE",
-            style: TextStyle(
-              color: COLOR_THEME['tertiary'],
-              fontSize: 22,
-            )),
-      ),
-      const Padding(
-        padding: EdgeInsets.all(2.0),
-        child: Text("Connection Strong",
-            style: TextStyle(
-              color: Colors.green,
-              fontSize: 17,
-            )),
-      )
+      connected
+          ? Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Text("Smart Cane - 20099CE",
+                  style: TextStyle(
+                    color: COLOR_THEME['tertiary'],
+                    fontSize: 22,
+                  )),
+            )
+          : Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Text("Connect a Device",
+                  style: TextStyle(
+                    color: COLOR_THEME['tertiary'],
+                    fontSize: 22,
+                  )),
+            ),
+      connected
+          ? const Padding(
+              padding: EdgeInsets.all(2.0),
+              child: Text("Connection Strong",
+                  style: TextStyle(
+                    color: Colors.green,
+                    fontSize: 17,
+                  )),
+            )
+          : const Padding(
+              padding: EdgeInsets.all(2.0),
+              child: Text("Pair with a new device from bluetooth settings",
+                  style: TextStyle(
+                    color: Colors.green,
+                    fontSize: 17,
+                  )),
+            )
     ],
   );
 }

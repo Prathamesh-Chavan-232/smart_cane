@@ -2,11 +2,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_cane/common_utils/colors.dart';
 import 'package:smart_cane/connect_blue_serial.dart';
-import 'package:smart_cane/connect_bluetooth/home.dart';
+import 'package:smart_cane/pages/auth_screens/login.dart';
 import 'package:smart_cane/pages/settings/more/bluetooth.dart';
 import 'package:smart_cane/pages/settings/more/emergency_calls.dart';
 import 'package:smart_cane/pages/settings/profile/profile_page.dart';
-import 'package:smart_cane/screens/auth_screens/start_screen.dart';
+import 'package:smart_cane/pages/auth_screens/start_screen.dart';
 import 'globals.dart';
 import 'pages/home/home_page.dart';
 
@@ -40,11 +40,11 @@ class MyApp extends StatelessWidget {
         textTheme: DEFAULT_TEXT_THEME,
       ),
       themeMode: ThemeMode.light,
-      initialRoute: '/dev',
+      initialRoute: '/home',
       routes: {
-        '/dev': (_) => const ConnectBlueSerial(),
-        '/connect_arduino': (_) => const ConnectArduino(),
+        '/connect': (_) => const ConnectBlueSerial(),
         '/start': (_) => const StartScreen(),
+        '/login': (_) => const Login(),
         '/home': (_) => const HomePage(),
         '/profile': (_) => const ProfilePage(),
         '/bluetooth': (_) => const BlueTooth(),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:smart_cane/globals.dart';
-import 'package:syncfusion_flutter_maps/maps.dart';
 import 'home_widgets.dart';
 
 class HomePage extends StatefulWidget {
@@ -61,7 +60,7 @@ class _HomePageState extends State<HomePage> {
             onChanged: (value) => swap(),
             activeColor: COLOR_THEME['tertiary'],
             activeTrackColor: Colors.white38,
-            inactiveThumbColor: Color.fromRGBO(249, 119, 119, 1.0),
+            inactiveThumbColor: const Color.fromRGBO(249, 119, 119, 1.0),
             inactiveTrackColor: Colors.white38,
           ),
           actions: [
@@ -85,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                     image: AssetImage("assets/background-circuit.png"),
                     fit: BoxFit.cover)),
           ),
-          Body(),
+          const Body(),
         ]));
   }
 }

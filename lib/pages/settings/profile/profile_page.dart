@@ -17,7 +17,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: bottom(),
-      floatingActionButton: logout(),
+      floatingActionButton: logout(context),
       appBar: appBar(context, "Settings / Profile"),
       body: Stack(
         children: [
